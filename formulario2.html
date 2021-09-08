@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Formulario 2</title>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Direccion de correo: </label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">Nunca compartiremos tu correo con nadie.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Contraseña: </label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Recordarme.</label>
+            </div>
+            <!-- No genera llamado-->
+            <button type="button" class="btn btn-info" onclick="window.alert('Mensaje')">Enviar button</button>
+            <!-- Genera llamado-->
+            <button class="btn btn-primary" onclick="window.alert('Mensaje2')">Enviar no tipo</button>
+            <!-- Genera llamado-->
+            <a href="" class="btn btn-primary" onclick="window.alert('Mensaje3')">Boton enlace</a>
+            <!-- No genera llamado-->
+            <a class="btn btn-info" onclick="window.alert('Mensaje4')">Boton no enlace</a>
+          </form>
+    </div>
+
+    <script src="formulario2.js"></script>
+</body>
+</html>
