@@ -23,14 +23,18 @@
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Recordarme.</label>
             </div>
-            <!-- No genera llamado-->
-            <button type="button" class="btn btn-info" onclick="window.alert('Mensaje')">Enviar button</button>
-            <!-- Genera llamado-->
+            <!-- No genera llamado y no hay query string-->
+            <button type="button" class="btn btn-info" id="btnEnviar1" onclick="window.alert('Mensaje0')">Enviar button</button>
+            <!-- -->
+            <button type="submit" class="btn btn-primary" id="btnEnviar2" onclick="window.alert('Mensaje1')">Enviar button</button>
+            <!-- Genera llamado y hay query string (?)-->
             <button class="btn btn-primary" onclick="window.alert('Mensaje2')">Enviar no tipo</button>
-            <!-- Genera llamado-->
+            <!-- Genera salto y no hay query string-->
             <a href="" class="btn btn-primary" onclick="window.alert('Mensaje3')">Boton enlace</a>
-            <!-- No genera llamado-->
-            <a class="btn btn-info" onclick="window.alert('Mensaje4')">Boton no enlace</a>
+            <!-- No genera salto y no hay query string-->
+            <a class="btn btn-info" onclick="boton4()">Boton no enlace</a>
+
+            <a class="btn btn-info" id="btnEnviar5">Boton 5</a>
           </form>
     </div>
 
