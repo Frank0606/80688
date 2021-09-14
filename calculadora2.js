@@ -19,52 +19,53 @@ var botonMenos = document.getElementById("menos");
 var botonMulti = document.getElementById("multi");
 var botonDiv = document.getElementById("div");
 var botonIgual = document.getElementById("igual");
+var botonC = document.getElementById("C");
 
 //Numeros
 boton1.addEventListener("click", function () {
-    display.value = display.value + "1 ";
+    display.value = display.value + "1";
 });
 boton2.addEventListener("click", function () {
-    display.value = display.value + "2 ";
+    display.value = display.value + "2";
 });
 boton3.addEventListener("click", function () {
-    display.value = display.value + "3 ";
+    display.value = display.value + "3";
 });
 boton4.addEventListener("click", function () {
-    display.value = display.value + "4 ";
+    display.value = display.value + "4";
 });
 boton5.addEventListener("click", function () {
-    display.value = display.value + "5 ";
+    display.value = display.value + "5";
 });
 boton6.addEventListener("click", function () {
-    display.value = display.value + "6 ";
+    display.value = display.value + "6";
 });
 boton7.addEventListener("click", function () {
-    display.value = display.value + "7 ";
+    display.value = display.value + "7";
 });
 boton8.addEventListener("click", function () {
-    display.value = display.value + "8 ";
+    display.value = display.value + "8";
 });
 boton9.addEventListener("click", function () {
-    display.value = display.value + "9 ";
+    display.value = display.value + "9";
 });
 boton0.addEventListener("click", function () {
-    display.value = display.value + "0 ";
+    display.value = display.value + "0";
 });
 
 //Operaciones
 botonMas.addEventListener("click", function () {
-    display.value = display.value + "+ ";
+    display.value = display.value + " + ";
 });
 botonMenos.addEventListener("click", function () {
-    display.value = display.value + "- ";
+    display.value = display.value + " - ";
 });
 botonMulti.addEventListener("click", function () {
-    display.value = display.value + "* ";
+    display.value = display.value + " * ";
 });
 botonDiv.addEventListener("click", function () {
-    display.value = display.value + "/ ";
+    display.value = display.value + " / ";
 });
 botonIgual.addEventListener("click", function () {
-    display.value = display.value + "= ";
+    display.value = eval(display.value);
 });
