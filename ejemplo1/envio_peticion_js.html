@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>Saludar</title>
+</head>
+<body>
+
+    <div class="container" class="mt-5">
+
+        <form action="http://localhost:4567/saludar" method="get">
+
+            <div class="mb-3">
+
+              <label class="form-label">Usuario</label>
+              <input type="text" class="form-control" id="nombre">
+
+            </div>
+
+            <div class="mb-3">
+
+              <label class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password">
+
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submit">Genera Submit</button>
+            <button type="button" class="btn btn-primary" id="noSubmit">Post</button>
+            <button type="button" class="btn btn-primary" id="noSubmitGet">Get</button>
+            <button type="button" class="btn btn-primary" id="noSubmitPostJson">PostJson</button>
+
+        </form>
+    </div>
+
+    <!-- Esto hace que sea asincrono -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="envio_js_peticion.js"></script>
+
+</body>
+</html>
