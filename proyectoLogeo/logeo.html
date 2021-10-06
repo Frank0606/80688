@@ -21,26 +21,41 @@
         
         <form action="http://localhost:4567/Logeo" method="get">
         
-            <div class="mb-0">
+            <div class="mb-0 border border-primary text-center" style="margin-top: 30px;">
 
-                <label class="col-form-label-lg">Bienvenido</label>
-
-            </div>
-
-            <div class="mb-0">
-
-                <label class="col-form-label-lg">Introduce tus datos:</label>
+                <label class="col-form-label-lg" style="font-size: xx-large;">Bienvenido</label>
 
             </div>
 
-            <div class="mb-0">
+            <div class="mb-0 border border-primary" style="margin-top: 30px;">
 
-                <label class="col-form-label-lg">Usuario: </label>
-                <input type="text" name="" id="" class="form-control-sm">
+                <label class="col-form-label-lg" style="padding-left: 15px;">Introduce tus datos:</label>
 
             </div>
 
-            <button type="button" class="btn btn-primary" id="btnRegistro">Ingresar</button>
+            <div class="row align-self-center border border-warning" style="margin-top: 30px;">
+
+                <div class="col-6 mx-auto">
+
+                    <label class="col-form-label-lg">Usuario: </label>
+                    <input type="text" name="user" id="user" class="form-control-sm" placeholder="Usuario">
+    
+                </div>
+
+                <div class="col-6 mx-auto">
+
+                    <label class="col-form-label-lg">Contraseña: </label>
+                    <input type="text" name="password" id="password" class="form-control-sm" placeholder="Contraseña">
+    
+                </div>
+
+            </div>        
+
+            <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 30px;">
+
+                <button type="button" class="btn btn-primary" id="btnRegistro">Ingresar</button>
+
+            </div>
 
         </form>
     </div>
