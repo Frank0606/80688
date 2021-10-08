@@ -5,8 +5,7 @@ import com.google.gson.*;
 
 public class App 
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) {
 
         options("/*", (request, response) -> {
 
@@ -23,19 +22,55 @@ public class App
             return "OK";
         });
 
-        get("/log", (req, res) -> {
+        before((req, res) -> res.header("Access-Control-Allow-Origin", "*"));
 
-            return "";
+        JsonObject objectsJson[] = new JsonObject[2];
+        int contadores[] = new int[2];
+        contadores[0] = 0;
+
+        post("/logearUsuario", (req, res) -> {
+
+            String usuario = req.queryParams("Usuario");
+            String contraseña = req.queryParams("Contraseña");
+            String usuarioR, contraseñaR, respuesta = "0";
+
+            for(int i=0; i==2; i++) {
+
+                usuarioR = String.valueOf(objectsJson[i].get("Usuario"));
+                contraseñaR = String.valueOf(objectsJson[i].get("Contraseña"));
+
+                System.out.println(usuarioR + " " + contraseñaR);
+                
+                if(usuario.equals(usuarioR) && contraseña.equals(contraseñaR)) {
+
+                    respuesta = "Usuario valido. Bienvenido " + usuario;
+                    break;
+
+                }
+
+            }
+
+            return respuesta;
+
         });
 
-        get("/registro", (req, res) -> {
+        post("/registrarUsuarios", (req, res) -> {
+            
+            JsonParser parser = new JsonParser();
+            JsonElement arbol = parser.parse(req.body());
+            JsonObject peticion = arbol.getAsJsonObject();
 
-            return "";
-        });
+            Object usuario = peticion.get("usuario");
+            Object password = peticion.get("contraseña");
 
-        get("/usuariosRegistrados", (req, res) -> {
+            JsonObject objectJson = new JsonObject();
+            objectJson.addProperty("Usuario", usuario.toString());
+            objectJson.addProperty("Contraseña", password.toString());
 
-            return "";
+            objectsJson[contadores[0]] = objectJson;
+            contadores[0] = contadores[0] + 1;
+
+            return objectJson;
         });
     }
 }
