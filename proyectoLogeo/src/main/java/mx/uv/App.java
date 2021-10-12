@@ -26,7 +26,9 @@ public class App
 
         JsonObject objectsJson[] = new JsonObject[2];
         int contadores[] = new int[2];
+        int contadores2[] = new int[2];
         contadores[0] = 0;
+        contadores2[0] = 0;
 
         post("/logearUsuario", (req, res) -> {
 
@@ -34,12 +36,10 @@ public class App
             String contraseña = req.queryParams("Contraseña");
             String usuarioR, contraseñaR, respuesta = "0";
 
-            for(int i=0; i==2; i++) {
+            for(int i=0; i<2; i++) {
 
-                usuarioR = String.valueOf(objectsJson[i].get("Usuario"));
-                contraseñaR = String.valueOf(objectsJson[i].get("Contraseña"));
-
-                System.out.println(usuarioR + " " + contraseñaR);
+                usuarioR = objectsJson[i].get("Usuario").getAsString();
+                contraseñaR = objectsJson[i].get("Contraseña").getAsString();
                 
                 if(usuario.equals(usuarioR) && contraseña.equals(contraseñaR)) {
 
@@ -64,13 +64,24 @@ public class App
             Object password = peticion.get("contraseña");
 
             JsonObject objectJson = new JsonObject();
-            objectJson.addProperty("Usuario", usuario.toString());
-            objectJson.addProperty("Contraseña", password.toString());
+            objectJson.addProperty("Usuario", usuario.toString().replace("\"", ""));
+            objectJson.addProperty("Contraseña", password.toString().replace("\"", ""));
 
             objectsJson[contadores[0]] = objectJson;
             contadores[0] = contadores[0] + 1;
 
             return objectJson;
+        });
+
+        post("/usuariosRegistrados", (req, res) -> {
+
+            JsonObject objectJson = new JsonObject();
+
+            objectJson = objectsJson[contadores2[0]];
+            contadores2[0] = 1;
+
+            return objectJson;
+
         });
     }
 }

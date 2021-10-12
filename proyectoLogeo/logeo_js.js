@@ -2,8 +2,8 @@
 var btnLogeo = document.getElementById("btnLogeo");
 btnLogeo.addEventListener("click", function() {
 
-    let usuario = document.getElementById("user").value;
-    let contraseña = document.getElementById("password").value;
+    var usuario = document.getElementById("user").value;
+    var contraseña = document.getElementById("password").value;
     let params = new URLSearchParams();
 
     params.append("Usuario", usuario);
@@ -13,15 +13,14 @@ btnLogeo.addEventListener("click", function() {
         
         .then(function(response) {
 
-            console.log(response.toString());
+            if(parseInt(response.data) == 0) {
 
-            if(parseInt(response) == 0) {
-
-                console.log(response);
                 alert("No se encuentra usuario");
 
             } else {
 
+                alert(response.data);
+                location.href = "usuariosRegistrados.html";
 
             }
         })
