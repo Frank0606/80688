@@ -1,8 +1,12 @@
 
-var divUsuarios = document.getElementById("divUsuarios");
+var usuariosReg = document.getElementById("usuariosReg");
 
-axios.post("http://localhost:4567/usuariosRegistrados", {
-})
+usuariosReg.addEventListener("click", {
+
+    axios.post("http://localhost:4567/usuariosRegistrados", {
+    
+
+    })
     .then(function(response) {
     
         
@@ -14,3 +18,19 @@ axios.post("http://localhost:4567/usuariosRegistrados", {
         console.log(error);
     
     })
+
+})
+
+
+function usuarios(u) {
+
+    let text = "";
+    for(let i = 0 ; i<u.lenght; i++){
+
+        let tareas = document.createElement("li");
+        tareas.textContent = u[i];
+        
+
+    }
+
+};

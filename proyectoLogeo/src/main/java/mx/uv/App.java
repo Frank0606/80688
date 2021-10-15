@@ -1,6 +1,9 @@
 package mx.uv;
 
 import static spark.Spark.*;
+
+import java.util.Map;
+
 import com.google.gson.*;
 
 public class App 
@@ -25,6 +28,7 @@ public class App
         before((req, res) -> res.header("Access-Control-Allow-Origin", "*"));
 
         JsonObject objectsJson[] = new JsonObject[2];
+        //
         int contadores[] = new int[2];
         int contadores2[] = new int[2];
         contadores[0] = 0;
@@ -75,12 +79,15 @@ public class App
 
         post("/usuariosRegistrados", (req, res) -> {
 
-            JsonObject objectJson = new JsonObject();
+            JsonObject objectJson[] = new JsonObject[2];
 
-            objectJson = objectsJson[contadores2[0]];
-            contadores2[0] = 1;
+            for(int i = 0; i<2; i++){
+                
+                objectJson[i] = objectsJson[i];
 
-            return objectJson;
+            }
+
+            return objectJson[];
 
         });
     }
