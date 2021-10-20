@@ -1,0 +1,6 @@
+<html>
+<body>
+    #set($foo = "velocity")
+    Hello $foo $nombre $apellido world!
+</body>
+</html>
