@@ -41,7 +41,14 @@ public class App
         // Por default, abre primero un archivo que se llame index antes que cualquier otro archivo
 
         // Cuando se ejecuta en forma de jar, se ejecuta por determinado este get, ya no el static file
-        get("/", (req, res) -> "Respuesta");
+        //get("/", (req, res) -> "Respuesta");
+        get("/", (req, res) -> {
+            
+            Map<String, Object> model = new HashMap<>();
+            return new VelocityTemplateEngine().render(new ModelAndView(model, "index.html"));
+
+        });
+
         get("/hola", (req, res) -> "Hola mundo");
 
         // Redirecciones
