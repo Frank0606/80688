@@ -3,7 +3,7 @@ var estado;
 
 var btnLlamar = document.getElementById("llamar")
 btnLlamar.addEventListener("click", function () {
-    axios.get("http://localhost:4567/usuario")
+    axios.get("https://deployment-fdsn-1.herokuapp.com/usuario")
     .then(function (response) {
         alert("mensaje:"+response.data.password);
     })
@@ -14,7 +14,7 @@ btnLlamar.addEventListener("click", function () {
 
 var btnPagina = document.getElementById("pagina")
 btnPagina.addEventListener("click",function () {
-    axios.get("http://localhost:4567/pagina")
+    axios.get("https://deployment-fdsn-1.herokuapp.com/pagina")
     .then(function (response) {
         if(response.data.access =="ok")
             window.location.replace(response.data.page)
@@ -36,7 +36,7 @@ btnPagina2.addEventListener("click",function () {
 
 var btnUsuarios = document.getElementById("usuarios")
 btnUsuarios.addEventListener("click", function () {
-    axios.get("http://localhost:4567/usuarios")
+    axios.get("https://deployment-fdsn-1.herokuapp.com/usuarios")
     .then(function (response) {
         console.log(response.data);
         usuarios(response.data);
@@ -48,7 +48,7 @@ btnUsuarios.addEventListener("click", function () {
 
 var btnRegistrar = document.getElementById("registrar")
 btnRegistrar.addEventListener("click", function () {
-    axios.post("http://localhost:4567/usuario", {
+    axios.post("https://deployment-fdsn-1.herokuapp.com/usuario", {
         email : document.getElementById("email").value,
         password : document.getElementById("password").value
     })
