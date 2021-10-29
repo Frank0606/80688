@@ -9,7 +9,7 @@ btnLogeo.addEventListener("click", function() {
     params.append("Usuario", usuario);
     params.append("Contraseña", contraseña);
 
-    axios.post("http://localhost:4567/logearUsuario", params)
+    axios.post("/logearUsuario", params)
         
         .then(function(response) {
 

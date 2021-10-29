@@ -2,13 +2,16 @@ package mx.uv;
 
 import static spark.Spark.*;
 
-import java.util.Map;
+//import java.util.Map;
 
 import com.google.gson.*;
 
 public class App 
 {
     public static void main( String[] args ) {
+
+        port(getHerokuAssignedPort());
+        staticFiles.location("/");
 
         options("/*", (request, response) -> {
 
@@ -33,6 +36,11 @@ public class App
         int contadores2[] = new int[2];
         contadores[0] = 0;
         contadores2[0] = 0;
+
+        get("/", (req, res) -> {
+            res.redirect("logeo.html");
+            return null;
+        });
 
         post("/logearUsuario", (req, res) -> {
 
@@ -90,5 +98,13 @@ public class App
             return "Aun no puedo :(";
 
         });
+    }
+
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 }

@@ -1,11 +1,11 @@
 
 var usuariosReg = document.getElementById("usuariosReg");
 
-usuariosReg.addEventListener("click", {
+/*usuariosReg.addEventListener("click", {
 
     axios.post("http://localhost:4567/usuariosRegistrados", {
-    
 
+        name: 
     })
     .then(function(response) {
     
@@ -19,7 +19,7 @@ usuariosReg.addEventListener("click", {
     
     })
 
-})
+})*/
 
 
 function usuarios(u) {

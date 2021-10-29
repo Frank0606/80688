@@ -5,7 +5,7 @@ btnRegistro.addEventListener("click", function() {
     var usuario = document.getElementById("user").value;
     var contraseña = document.getElementById("password").value;
 
-    axios.post("http://localhost:4567/registrarUsuarios", {
+    axios.post("/registrarUsuarios", {
         usuario : usuario,
         contraseña : contraseña
     })
