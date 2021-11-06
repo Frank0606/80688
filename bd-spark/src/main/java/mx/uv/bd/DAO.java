@@ -16,7 +16,6 @@ public class DAO {
 
         PreparedStatement stm = null;
         Connection con = null;
-        ResultSet rs = null;
         String msj = "";
 
         con = conexion.getConnection();
@@ -147,6 +146,128 @@ public class DAO {
 
         return resultado;
 
+    }
+
+    public String actualizarUsuario(usuario u) {
+
+        PreparedStatement stm = null;
+        Connection con = null;
+        String msj = "";
+
+        con = conexion.getConnection();
+
+        try {
+            
+            String sql = "UPDATE usuarios SET email=?, password=? WHERE id=?";
+            stm = con.prepareStatement(sql);
+            stm.setString(1, u.getEmail());
+            stm.setString(2, u.getPassword());
+            stm.setString(3, u.getId());
+
+            if( stm.executeUpdate()>0 ) {
+
+                msj = "Se actualizo la informacion del usuario";
+
+            } else {
+
+                msj = "No se actualizo la informacion del usuario";
+
+            }
+
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+
+        } finally {
+
+            if( stm != null ) {
+
+                try {
+
+                    stm.close();
+
+                } catch (Exception e) {
+
+                    e.printStackTrace();
+
+                }
+
+            }
+
+            try {
+
+                con.close();
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+                
+            }
+
+        }
+
+        return msj;
+
+    }
+
+    public String eliminarUsuario(String idEliminar) {
+
+        PreparedStatement stm = null;
+        Connection con = null;
+        String msj = "";
+
+        con = conexion.getConnection();
+
+        try {
+            
+            String sql = "DELETE FROM usuarios WHERE id=?";
+            stm = con.prepareStatement(sql);
+            stm.setString(1, idEliminar);
+
+            if( stm.executeUpdate()>0 ) {
+
+                msj = "Se elimino el usuario";
+
+            } else {
+
+                msj = "No se pudo eliminar el usuario";
+
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        } finally {
+
+            if( stm != null ) {
+
+                try {
+
+                    stm.close();
+
+                } catch (Exception e) {
+
+                    e.printStackTrace();
+
+                }
+
+            }
+
+            try {
+
+                con.close();
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+                
+            }
+
+        }
+
+        return msj;
+        
     }
 
 }

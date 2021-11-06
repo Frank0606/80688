@@ -5,7 +5,7 @@ btnRegistrar.addEventListener("click", function () {
         password : document.getElementById("password").value
     })
     .then(function (response) {
-        alert("mensaje: usuario creado "+response.data.status+" con id: "+response.data.id);
+        alert("Usuario creado " + response.data.status + ", con id: " + response.data.id);
         id = response.data.id;
         estado=response.data.status;
     })
@@ -21,6 +21,34 @@ btnUsuarios.addEventListener("click", function () {
         console.log(response.data);
     })
     .catch(function (error) {
+        console.log(error);
+    })
+})
+
+var btnActualizar = document.getElementById("actualizar")
+btnActualizar.addEventListener("click", function() {
+    axios.post("http://localhost:4567/actualizar", {
+        id : document.getElementById("idUsuario").value,
+        email : document.getElementById("emailUsuario").value,
+        password : document.getElementById("passwordUsuario").value
+    })
+    .then(function(response) {
+        alert(response.data.status + " con id: " + response.data.id);
+    })
+    .catch(function(error) {
+        console.log(error);
+    })
+})
+
+var btnEliminar = document.getElementById("eliminar")
+btnEliminar.addEventListener("click", function() {
+    axios.post("http://localhost:4567/eliminar", {
+        id : document.getElementById("idEliminar").value
+    })
+    .then(function(response) {
+        alert(response.data.status + " con id: " + response.data.id);
+    })
+    .catch(function(error) {
         console.log(error);
     })
 })

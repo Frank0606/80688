@@ -11,8 +11,8 @@ import com.google.gson.JsonObject;
 
 import mx.uv.bd.*;
 
-public class App 
-{
+public class App {
+
     private static Gson gson = new Gson();
     private static Map<String, usuario> usuarios = new HashMap<>();
     
@@ -54,6 +54,33 @@ public class App
             JsonObject objetoJson = new JsonObject();
             objetoJson.addProperty("status", dao.crearUsuario(u));
             objetoJson.addProperty("id", id);
+
+            return objetoJson;
+        });
+
+        post("/actualizar", (req, res) -> {
+
+            DAO dao = new DAO();
+            String payload = req.body();
+            usuario u = gson.fromJson(payload, usuario.class);
+            
+            JsonObject objetoJson = new JsonObject();
+            objetoJson.addProperty("status", dao.actualizarUsuario(u));
+            objetoJson.addProperty("id", u.getId());
+
+            return objetoJson;
+        });
+
+        post("/eliminar", (req, res) -> {
+
+            DAO dao = new DAO();
+            String payload = req.body();
+            usuario u = gson.fromJson(payload, usuario.class);
+
+            JsonObject objetoJson = new JsonObject();
+            objetoJson.addProperty("status", dao.eliminarUsuario(u.getId()));
+            objetoJson.addProperty("id", u.getId());
+
             return objetoJson;
         });
 

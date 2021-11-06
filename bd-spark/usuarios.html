@@ -10,13 +10,33 @@
 
 <body>
 
+    <h2>Registrar y ver los usuarios</h2>
+
     <form action="">
-        <input type="text" placeholder="email" id="email">
-        <input type="password" placeholder="password" id="password">
+        <input type="text" placeholder="Email" id="email">
+        <input type="password" placeholder="Password" id="password">
     </form>
     
     <button type="button" id="registrar">Registrar</button>
     <button type="button" id="usuarios">Usuarios</button>
+
+    <h2>Actualizar un usuario</h2>
+
+    <form action="">
+        <input type="text" placeholder="ID" id="idUsuario">
+        <input type="email" placeholder="Email" id="emailUsuario">
+        <input type="password" placeholder="Password" id="passwordUsuario">
+    </form>
+
+    <button type="button" id="actualizar">Actualizar</button>
+
+    <h2>Eliminar un usuario</h2>
+
+    <form action="">
+        <input type="text" placeholder="ID" id="idEliminar">
+    </form>
+    
+    <button type="button" id="eliminar">Eliminar</button>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="usuarios.js"></script>

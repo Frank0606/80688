@@ -11,6 +11,10 @@ public class usuario {
         this.setPassword(password);
     }
 
+    public usuario(String id) {
+        this.setId(id);
+    }
+
     public String getPassword() {
         return password;
     }
